@@ -3,6 +3,10 @@ import time
 import pytest
 from PageObjects.SignupAutomation import Signup
 
+# For Keyboard Actions
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+
 class TestSignUp():
     @pytest.fixture(autouse=True)
     def setup(self, driver: webdriver.Chrome):
@@ -23,12 +27,57 @@ class TestSignUp():
 
         # Actions on 1. setup your account
         self.signupobj.set_first_name("Sujan")
+        time.sleep(2)
         self.signupobj.set_last_name("Rial")
-        self.signupobj.set_email_address("tester@yopmail.com")
-        self.signupobj.set_phone_number("9840308352")
+        self.signupobj.set_email_address("interntask23@yopmail.com")
+        self.signupobj.set_phone_number("9840308104")
         self.signupobj.set_password("Tester@123")
         self.signupobj.set_confirm_password("Tester@123")
         time.sleep(2)
+        self.signupobj.scroll_page()
+        self.signupobj.click_next()
+        time.sleep(30)
+
+        # Action on 2. Agency Detail
+        self.signupobj.set_agency_name("Vrit Technologies")
+        time.sleep(1)
+        self.signupobj.set_role_in_agency("Quality Assurance")
+        time.sleep(1)
+        self.signupobj.set_agency_email("rizalsuzan3@gmail.com")
+        time.sleep(1)
+        self.signupobj.set_agency_website("www.vrittechnologies.com")
+        time.sleep(1)
+        self.signupobj.set_agency_address("Sankhamul")
+        time.sleep(1)
+        self.signupobj.click_region_of_operation()
+        time.sleep(1)
+        self.signupobj.scroll_page()
+        time.sleep(1)
+        self.signupobj.search_region("nepal")
+        time.sleep(1)
+        self.signupobj.click_search_result()
+        time.sleep(1)
+        ActionChains(self.driver).send_keys(Keys.ESCAPE).perform()
+        time.sleep(1)
+        self.signupobj.click_next2()
+        time.sleep(5)
+
+        # Actions on 3. Professional Experience
+        ActionChains(self.driver).send_keys(Keys.TAB).send_keys(Keys.TAB).send_keys(Keys.ENTER)  # Keyboarrd actions with actionchain
+        time.sleep(2)
+        self.signupobj.click_experience_option()
+        time.sleep(1)
+        self.signupobj.set_number_of_students_recruited("20")
+        self.signupobj.set_focus_area("Selenium Webdriver")
+        self.signupobj.set_sucess_matrix("99")
+        self.signupobj.click_Service_provided()
+        time.sleep(2)
+
+
+
+
+
+
 
 
 
