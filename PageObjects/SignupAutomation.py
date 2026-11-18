@@ -38,8 +38,8 @@ class Signup():
 
         # 3. Professional experience Locators
 
-        self.years_of_experience_button_CSSselector = (By.CSS_SELECTOR, "#_r_37e_-form-item")
-        self.experience_options_XPATH = (By.XPATH, "//div[@role='presentation']//div[1]")
+        self.years_of_experience_button_XPATH = (By.XPATH, "//button[@role='combobox']")
+        self.years_of_experience_option_XPATH = (By.XPATH, "//*[@role='option' and normalize-space()='1 year']")
         self.no_of_students_CSSselector = (By.CSS_SELECTOR, "#_r_2v5_-form-item")
         self.focus_area_CSSselector = (By.CSS_SELECTOR, "#_r_2v6_-form-item")
         self.sucess_metricsCSS_selector = (By.CSS_SELECTOR, "#_r_2v7_-form-item")
@@ -49,7 +49,14 @@ class Signup():
         # 4. Verification and Preferences
         self.Business_reg_number_NAME = (By.NAME, "business_registration_number")
         self.preffered_countries_CSSselector = (By.CSS_SELECTOR,".font-satoshi-regular.text-translucent")
+        self.preffered_country_search_CSSselector = (By.CSS_SELECTOR, "input[placeholder='Search...']")
+        self.search_result2_XPATH = (By.XPATH, "//span[normalize-space()='Australia']")
+        self.preffered_institutions_checkbox_CSSselector = (By.CSS_SELECTOR, "#_r_1a_-form-item")
+        self.certification_details_CSSselector = (By.CSS_SELECTOR, "#_r_1e_-form-item")
 
+        # Upload / Drag Drop Locators
+        self.upload_file1_CSSselector = (By.CSS_SELECTOR, "body > div:nth-child(33) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > form:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
+        self.upload_file2_CSSselector = (By.CSS_SELECTOR, "body > div:nth-child(33) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > form:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)")
 
 
     def click_login(self):
@@ -134,10 +141,10 @@ class Signup():
     # Methods for Professional Experience
 
     def click_experience_menu(self):
-        self.driver.find_element(*self.years_of_experience_button_CSSselector).click()
+        self.driver.find_element(*self.years_of_experience_button_XPATH).click()
 
-    def click_experience_option(self):
-        self.driver.find_element(*self.experience_options_XPATH).click()
+    def choose_years_of_exp(self):
+        self.driver.find_element(*self.years_of_experience_option_XPATH).click()
 
     def set_number_of_students_recruited(self, studentnumber):
         self.driver.find_element(*self.no_of_students_CSSselector).send_keys(studentnumber)

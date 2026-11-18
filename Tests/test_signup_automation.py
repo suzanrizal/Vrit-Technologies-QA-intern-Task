@@ -28,15 +28,15 @@ class TestSignUp():
         # Actions on 1. setup your account
         self.signupobj.set_first_name("Sujan")
         time.sleep(2)
-        self.signupobj.set_last_name("Rial")
-        self.signupobj.set_email_address("interntask23@yopmail.com")
-        self.signupobj.set_phone_number("9840308104")
+        self.signupobj.set_last_name("Rijal")
+        self.signupobj.set_email_address("interntask108@yopmail.com")
+        self.signupobj.set_phone_number("9840308709")
         self.signupobj.set_password("Tester@123")
         self.signupobj.set_confirm_password("Tester@123")
         time.sleep(2)
         self.signupobj.scroll_page()
         self.signupobj.click_next()
-        time.sleep(30)
+        time.sleep(20)
 
         # Action on 2. Agency Detail
         self.signupobj.set_agency_name("Vrit Technologies")
@@ -63,15 +63,21 @@ class TestSignUp():
         time.sleep(5)
 
         # Actions on 3. Professional Experience
-        ActionChains(self.driver).send_keys(Keys.TAB).send_keys(Keys.TAB).send_keys(Keys.ENTER)  # Keyboarrd actions with actionchain
+        # ActionChains(self.driver).send_keys(Keys.TAB).send_keys(Keys.TAB).send_keys(Keys.ENTER).perform()  # Keyboarrd actions with actionchain
+        # time.sleep(2)
+        self.signupobj.click_experience_menu()
         time.sleep(2)
-        self.signupobj.click_experience_option()
-        time.sleep(1)
+        self.signupobj.choose_years_of_exp()
+        time.sleep(2)
         self.signupobj.set_number_of_students_recruited("20")
+        time.sleep(2)
         self.signupobj.set_focus_area("Selenium Webdriver")
+        time.sleep(2)
         self.signupobj.set_sucess_matrix("99")
         self.signupobj.click_Service_provided()
         time.sleep(2)
+
+        
 
 
 
