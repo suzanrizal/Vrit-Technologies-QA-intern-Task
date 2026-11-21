@@ -2,7 +2,6 @@ from selenium import webdriver
 import time
 import pytest
 from PageObjects.SignupAutomation import Signup
-
 # For Keyboard Actions
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
