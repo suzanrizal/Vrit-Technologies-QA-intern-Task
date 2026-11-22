@@ -58,7 +58,6 @@ class Signup():
         self.upload_file1_CSSselector = (By.CSS_SELECTOR, "body > div:nth-child(33) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > form:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)")
         self.upload_file2_CSSselector = (By.CSS_SELECTOR, "body > div:nth-child(33) > div:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > form:nth-child(2) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)")
 
-
     def click_login(self):
         self.driver.find_element(*self.login_button_XPATH).click()
 
